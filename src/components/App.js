@@ -1,27 +1,14 @@
 import React from "react";
-import logo from "../styles/logo.svg";
 import "../styles/App.scss";
+import { Consumer } from "./Context";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://bookmark-api.fbw-11.now.sh/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button type="button" className="btn btn-primary">
-            <i className="fab fa-chrome" /> Bookmark API v1.0
-          </button>
-        </a>
-      </header>
-    </div>
+    <Consumer>
+      {value => {
+        return <h3>Hello from App</h3>
+      }}
+    </Consumer>
   );
 }
 
