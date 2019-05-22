@@ -84,6 +84,26 @@ export default class AppContext extends Component {
       })
   }
 
+  //DELETE BOOKMARK
+  // deleteFunc = (e) => {
+  //   fetch('/api/bookmarks/5ce401549f5cd095775478e0', {
+  //     method: 'DELETE',
+  //     body: JSON.stringify(
+  //         {
+  //             "shortDescription": "new bookmark - edited",
+  //             "url": "http://theinternet.web"
+  //         }
+  //     ),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWNlM2ZlZWY5ZjVjZDA5NTc3NTQ3OGRmIiwiaWF0IjoxNTU4NDQ2Mjg3LCJleHAiOjE1NTg0NDk4ODd9.vHUIgkPrMcgzgu55GJV3LgufAgpAnWbMHGjcWc_guMU'
+  //     }
+  //   })
+  //   .then(res=>res.json())
+  //   .then(data=>console.log(data))
+  //       }
+
+
   showdetailsFunc = title => {
     const clickedBookmark = title;
     const filter = this.state.bookmarks.filter(
