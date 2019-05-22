@@ -38,8 +38,11 @@ export default class AppContext extends Component {
       .then(data => {
         console.log('resolved login promise:', data);
         localStorage.setItem('userToken', JSON.stringify(data.data.token));
-        this.setState(state => ({ isLoggedIn: !state.isLoggedIn }))
-        alert('successful!')
+        if (data.data.token) {
+          console.log('works')
+          this.setState(state => ({ isLoggedIn: !state.isLoggedIn }))
+          alert('successful!')
+        }
       })
   }
 
