@@ -38,6 +38,7 @@ export default class AppContext extends Component {
       .then(data => {
         console.log('resolved login promise:', data);
         localStorage.setItem('userToken', JSON.stringify(data.data.token));
+        this.setState(state => ({ isLoggedIn: !state.isLoggedIn }))
         alert('successful!')
       })
   }
@@ -65,9 +66,9 @@ export default class AppContext extends Component {
     return (
       <Provider value={{
         ...this.state,
-        handleChange: this.handleChange,
+        handleRegister: this.handleRegister,
         handleLogin: this.handleLogin,
-        handleRegister: this.handleRegister
+        handleChange: this.handleChange,
       }} >
         {this.props.children}
       </Provider>
