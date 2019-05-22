@@ -10,7 +10,7 @@ export default function Auth() {
         return (<form>
           <label>
             Username:
-    <input type="text" name="name" value={user} required onChange={(e) => handleChange('name', e)} />
+              <input type="text" name="name" value={user} required onChange={(e) => handleChange('name', e)} />
           </label>
           <label>
             Password:

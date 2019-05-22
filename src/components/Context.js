@@ -6,6 +6,7 @@ export default class AppContext extends Component {
     super(props);
     this.state = {
       bookmarks: [],
+      selectedBookmark: {},
       isLoggedIn: false,
       user: '',
       password: ''
@@ -19,6 +20,7 @@ export default class AppContext extends Component {
       this.setState({ password: e.target.value })
     }
   }
+
 
   handleLogin = (e) => {
     e.preventDefault();
@@ -40,11 +42,13 @@ export default class AppContext extends Component {
         localStorage.setItem('userToken', JSON.stringify(data.data.token));
         if (data.data.token) {
           console.log('works')
-          this.setState(state => ({ isLoggedIn: !state.isLoggedIn }))
-          alert('successful!')
+          this.setState(state => ({ isLoggedIn: true }))
+          alert('successful!') //<33
+          this.bookmarksFetch();
         }
       })
   }
+
 
   handleRegister = (e) => {
     e.preventDefault();
@@ -65,6 +69,31 @@ export default class AppContext extends Component {
     this.setState({ user: '', password: '' })
   }
 
+  bookmarksFetch() {
+    fetch('/api/bookmarks', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': JSON.parse(localStorage.getItem('userToken'))
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.data.bookmark)
+        this.setState({ bookmarks: data.data.bookmark })
+      })
+  }
+
+  showdetailsFunc = title => {
+    const clickedBookmark = title;
+    const filter = this.state.bookmarks.filter(
+      bookmark => bookmark.title === clickedBookmark
+    );
+    this.setState({ selectedBookmark: filter[0] });
+    console.log(this.state.selectedBookmark)
+  }
+
+
   render() {
     return (
       <Provider value={{
@@ -72,6 +101,7 @@ export default class AppContext extends Component {
         handleRegister: this.handleRegister,
         handleLogin: this.handleLogin,
         handleChange: this.handleChange,
+        showdetailsFunc: this.showdetailsFunc
       }} >
         {this.props.children}
       </Provider>
