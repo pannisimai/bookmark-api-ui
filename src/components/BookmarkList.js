@@ -10,8 +10,8 @@ export default class BookmarkList extends Component {
         {({ showdetailsFunc, bookmarks }) => {
           return (
             <div className="col-4 bookmark-list container">
-              <h5>Your bookmarks:</h5>
               <ul>
+                <h5 className="yourbookmarks-h5">Your bookmarks</h5>
                 {bookmarks.map(bookmark => {
                   console.log(bookmark);
                   return (
