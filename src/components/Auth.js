@@ -38,8 +38,18 @@ export default function Auth() {
                   onChange={e => handleChange("password", e)}
                 />
               </label>
-              <input type="submit" value="Login" onClick={handleLogin} />
-              <input type="submit" value="Register" onClick={handleRegister} />
+              <input
+                type="submit"
+                value="Login"
+                className="btn btn-dark login-btn"
+                onClick={handleLogin}
+              />
+              <input
+                type="submit"
+                value="Register"
+                className="btn btn-dark submit-btn"
+                onClick={handleRegister}
+              />
             </form>
           </div>
         );
