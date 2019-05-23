@@ -3,12 +3,18 @@
   //   color: black;
 }
 
+.bookmark-display-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5em;
+}
+
 .bookmark-disp-text {
   margin-top: 1.5em;
   display: flex;
   flex-direction: column;
 }
 
-.bookmark-display-buttons {
+.bookmark-display-button-container {
   padding-top: 2em;
 }
