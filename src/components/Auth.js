@@ -14,42 +14,44 @@ export default function Auth() {
           password
         } = value;
         return (
-          <div className="auth-container">
+          <div className="container auth-container">
             <form className="auth-form">
               <label>
-                Username:
                 <input
                   type="text"
                   name="name"
                   value={user}
                   placeholder="Username"
                   required
+                  className="form-control"
                   onChange={e => handleChange("name", e)}
                 />
               </label>
               <label>
-                Password:
                 <input
                   type="password"
                   name="password"
                   value={password}
                   placeholder="Password"
                   required
+                  className="form-control"
                   onChange={e => handleChange("password", e)}
                 />
               </label>
-              <input
-                type="submit"
-                value="Login"
-                className="btn btn-dark login-btn"
-                onClick={handleLogin}
-              />
-              <input
-                type="submit"
-                value="Register"
-                className="btn btn-dark submit-btn"
-                onClick={handleRegister}
-              />
+              <div>
+                <input
+                  type="submit"
+                  value="Login"
+                  className="btn btn-dark login-btn"
+                  onClick={handleLogin}
+                />
+                <input
+                  type="submit"
+                  value="Register"
+                  className="btn btn-dark submit-btn"
+                  onClick={handleRegister}
+                />
+              </div>
             </form>
           </div>
         );
