@@ -12,11 +12,10 @@ export default class BookmarkDisplay extends Component {
               return (
                 <div className="bookmark-display-container">
                   <div className="bookmark-disp-text">
-
-                  {selectedBookmark.title && }
                     <p>Title: {selectedBookmark.title}</p>
                     <p>Description: {selectedBookmark.shortDescription}</p>
-                    Link: <a
+                    Link:{" "}
+                    <a
                       href={selectedBookmark.url}
                       target="_blank"
                       rel="noopener noreferrer"
