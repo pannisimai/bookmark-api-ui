@@ -110,24 +110,20 @@ export default class AppContext extends Component {
       });
   }
 
-  //DELETE BOOKMARK
-  // deleteFunc = (e) => {
-  //   fetch('/api/bookmarks/5ce401549f5cd095775478e0', {
-  //     method: 'DELETE',
-  //     body: JSON.stringify(
-  //         {
-  //             "shortDescription": "new bookmark - edited",
-  //             "url": "http://theinternet.web"
-  //         }
-  //     ),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWNlM2ZlZWY5ZjVjZDA5NTc3NTQ3OGRmIiwiaWF0IjoxNTU4NDQ2Mjg3LCJleHAiOjE1NTg0NDk4ODd9.vHUIgkPrMcgzgu55GJV3LgufAgpAnWbMHGjcWc_guMU'
-  //     }
-  //   })
-  //   .then(res=>res.json())
-  //   .then(data=>console.log(data))
-  //       }
+  deleteFunc = (id) => {
+    fetch(`/api/bookmarks/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': JSON.parse(localStorage.getItem('userToken'))
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ selectedBookmark: null });
+      })
+  }
 
   showdetailsFunc = title => {
     const clickedBookmark = title;
@@ -140,15 +136,14 @@ export default class AppContext extends Component {
 
   render() {
     return (
-      <Provider
-        value={{
-          ...this.state,
-          handleRegister: this.handleRegister,
-          handleLogin: this.handleLogin,
-          handleChange: this.handleChange,
-          showdetailsFunc: this.showdetailsFunc
-        }}
-      >
+      <Provider value={{
+        ...this.state,
+        handleRegister: this.handleRegister,
+        handleLogin: this.handleLogin,
+        handleChange: this.handleChange,
+        showdetailsFunc: this.showdetailsFunc,
+        deleteFunc: this.deleteFunc
+      }} >
         {this.props.children}
       </Provider>
     );
