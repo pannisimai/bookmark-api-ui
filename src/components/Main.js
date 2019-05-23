@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Consumer } from "./Context";
 import Header from "./Header";
 import BookmarkDisplay from "./BookmarkDisplay";
 import BookmarkList from "./BookmarkList";
-
 
 export default class Main extends Component {
   render() {
@@ -20,9 +19,9 @@ export default class Main extends Component {
                 <BookmarkDisplay />
               </div>
             </div>
-          )
+          );
         }}
       </Consumer>
-    )
+    );
   }
 }
