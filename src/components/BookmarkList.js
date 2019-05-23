@@ -2,8 +2,19 @@ import React, { Component } from "react";
 import BookmarkItem from "./BookmarkItem";
 import { Consumer } from "./Context";
 import "../styles/BookmarkList.scss";
+import AddBookmark from "./AddBookmark";
 
 export default class BookmarkList extends Component {
+  state = {
+    addBookmarkModal: false
+  };
+  toggle = () => {
+    console.log("toggle function workssss");
+    this.setState({
+      addBookmarkModal: !this.state.addBookmarkModal
+    });
+  };
+
   render() {
     return (
       <Consumer>
@@ -22,8 +33,14 @@ export default class BookmarkList extends Component {
                     />
                   );
                 })}
-                <li className="add-bookmark-li">+ Add Bookmark </li>
+                <li className="add-bookmark-li" onClick={this.toggle}>
+                  + Add Bookmark{" "}
+                </li>
               </ul>
+              <AddBookmark
+                addBookmarkModal={this.state.addBookmarkModal}
+                toggle={this.toggle}
+              />
             </div>
           );
         }}
