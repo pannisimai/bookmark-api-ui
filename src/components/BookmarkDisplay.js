@@ -28,7 +28,7 @@ export default class BookmarkDisplay extends Component {
                         {selectedBookmark.url}
                       </a>
                     )}
-                    <div>
+                    <div className="bookmark-display-buttons">
                       <button type="button" className="btn btn-dark">
                         Edit
                       </button>

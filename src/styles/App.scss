@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 30px;
-
   overflow: hidden;
 }
 
@@ -13,15 +12,15 @@ body {
 }
 
 .header {
-  border: 1px solid hotpink;
+  border-bottom: 1px solid rgb(104, 104, 104);
 }
 
 .bookmark-list {
-  border: 1px solid hotpink;
+  border-right: 1px solid rgb(104, 104, 104);
 }
 
-.bookmarkdisplay {
-  border: 1px solid hotpink;
+.bookmark-display {
+  // border: 1px solid hotpink;
 }
 
 // /* colors */
