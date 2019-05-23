@@ -22,6 +22,7 @@ export default class BookmarkList extends Component {
                     />
                   );
                 })}
+                <li className="add-bookmark-li">+ Add Bookmark </li>
               </ul>
             </div>
           );
