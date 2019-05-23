@@ -3,13 +3,10 @@ import { Consumer } from "./Context"
 
 export default class BookmarkItem extends Component {
   render() {
+    const { showdetailsFunc, bookmark } = this.props;
     return (
       <React.Fragment>
-        <Consumer>
-          {value => (
-            <li onClick={() => value.showdetailsFunc(this.props.data.title)}>{this.props.data.title}</li>
-          )}
-        </Consumer>
+        <li onClick={() => showdetailsFunc(bookmark.title)}>{bookmark.title}</li>
       </React.Fragment>
     )
   }
