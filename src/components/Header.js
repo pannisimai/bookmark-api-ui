@@ -4,7 +4,7 @@ import "../styles/Header.scss";
 export default function Header() {
   return (
     <div className="col-12 header">
-      <nav className="navbar navbar-light justify-content-between">
+      <nav className="navbar navbar-light justify-content-between bookmark-navbar">
         <a className="navbar-brand">Bookmark API</a>
         <form className="form-inline">
           <input
