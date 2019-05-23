@@ -22,11 +22,11 @@ export default class BookmarkDisplay extends Component {
                       {" "}
                       {selectedBookmark.url}
                     </a>
+                    <button type="button" className="btn btn-dark">
+                      Edit
+                    </button>
                     <button type="button" className="btn btn-danger">
                       Delete
-                    </button>
-                    <button type="button" classname="btn btn-info">
-                      Edit
                     </button>
                   </div>
                 </div>
