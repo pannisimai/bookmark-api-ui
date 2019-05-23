@@ -7,15 +7,13 @@ import Main from "./Main"
 function App() {
   return (
     <Consumer>
-      {value => {
-        const { isLoggedIn } = value;
+      {({ isLoggedIn }) => {
         return (
           <div>
             {isLoggedIn ? <Main /> : <Auth />}
           </div>
         )
-      }
-      }
+      }}
     </Consumer>
   );
 }

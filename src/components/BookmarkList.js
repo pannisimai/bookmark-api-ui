@@ -8,20 +8,18 @@ export default class BookmarkList extends Component {
       <Consumer>
         {({ showdetailsFunc, bookmarks }) => {
           return (
-            < div className="col-4 bookmarklist" >
+            <div className="col-4 bookmarklist">
               <ul>
-                {bookmarks
-                  .map((bookmark) => {
-                    return <BookmarkItem
-                      bookmark={bookmark}
-                      showdetailsFunc={showdetailsFunc}
-                      key={bookmark._id} />
-                  })}
+                {bookmarks.map((bookmark) => {
+                  return <BookmarkItem
+                    bookmark={bookmark}
+                    showdetailsFunc={showdetailsFunc}
+                    key={bookmark._id} />
+                })}
               </ul>
             </div>
           )
-        }
-        }
+        }}
       </Consumer>
     )
   }
