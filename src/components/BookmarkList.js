@@ -11,6 +11,7 @@ export default class BookmarkList extends Component {
             <div className="col-4 bookmarklist">
               <ul>
                 {bookmarks.map((bookmark) => {
+                  console.log(bookmark)
                   return <BookmarkItem
                     bookmark={bookmark}
                     showdetailsFunc={showdetailsFunc}

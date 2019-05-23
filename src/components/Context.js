@@ -6,7 +6,7 @@ export default class AppContext extends Component {
     super(props);
     this.state = {
       bookmarks: [],
-      selectedBookmark: {},
+      selectedBookmark: null,
       isLoggedIn: false,
       user: '',
       password: ''

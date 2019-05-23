@@ -7,17 +7,21 @@ export default class BookmarkDisplay extends Component {
       <div className="col-8 bookmarkdisplay">
         <div className="country-display-container">
           <Consumer>
-            {({ selectedBookmark }) => (
-              <div className="country-disp-text">
-                <p>{selectedBookmark.title}</p>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-info">Edit</button>
-              </div>
-            )}
+            {({ selectedBookmark }) => {
+              if (selectedBookmark) {
+                return (< div className="country-disp-text">
+                  <p>{selectedBookmark.title}</p>
+                  <p>{selectedBookmark.shortDescription}</p>
+                  <a href={selectedBookmark.url} target="_blank" rel="noopener noreferrer"> {selectedBookmark.url}</a>
+                  <button type="button" className="btn btn-danger">Delete</button>
+                  <button type="button" classname="btn btn-info">Edit</button>
+                </div>)
+              }
+            }}
           </Consumer>
 
         </div>
-      </div>
+      </div >
     )
   }
 }
