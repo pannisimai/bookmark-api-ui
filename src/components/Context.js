@@ -8,7 +8,7 @@ export default class AppContext extends Component {
       bookmarks: [],
       selectedBookmark: null,
       // set to true if you want to permanently be logged in
-      isLoggedIn: true,
+      isLoggedIn: false,
       user: "",
       password: ""
     };
@@ -23,40 +23,13 @@ export default class AppContext extends Component {
     }
   };
 
-  componentDidMount() {
-    fetch("/auth/login", {
-      method: "POST",
-      body: JSON.stringify({
-        loginData: {
-          username: "bruh",
-          password: "123456789"
-        }
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("resolved login promise:", data);
-        localStorage.setItem("userToken", JSON.stringify(data.data.token));
-        if (data.data.token) {
-          console.log("works");
-          this.setState(state => ({ isLoggedIn: true }));
-          // alert("successful!"); //<33
-          this.bookmarksFetch();
-        }
-      });
-  }
-
-  // handleLogin = e => {
-  //   e.preventDefault();
+  // componentDidMount() {
   //   fetch("/auth/login", {
   //     method: "POST",
   //     body: JSON.stringify({
   //       loginData: {
-  //         username: this.state.user,
-  //         password: this.state.password
+  //         username: "bruh",
+  //         password: "123456789"
   //       }
   //     }),
   //     headers: {
@@ -70,11 +43,38 @@ export default class AppContext extends Component {
   //       if (data.data.token) {
   //         console.log("works");
   //         this.setState(state => ({ isLoggedIn: true }));
-  //         alert("successful!"); //<33
+  //         // alert("successful!"); //<33
   //         this.bookmarksFetch();
   //       }
   //     });
-  // };
+  // }
+
+  handleLogin = e => {
+    e.preventDefault();
+    fetch("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        loginData: {
+          username: this.state.user,
+          password: this.state.password
+        }
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("resolved login promise:", data);
+        localStorage.setItem("userToken", JSON.stringify(data.data.token));
+        if (data.data.token) {
+          console.log("works");
+          this.setState(state => ({ isLoggedIn: true }));
+          alert("successful!"); //<33
+          this.bookmarksFetch();
+        }
+      });
+  };
 
   handleRegister = e => {
     e.preventDefault();
