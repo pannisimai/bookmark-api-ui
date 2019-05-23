@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-
+import { Form, FormGroup, Label, Input } from "reactstrap";
 class AddBookmark extends Component {
-    miniToggle = () => {
-        this.props.toggle()
-    }
+  state = {
+    bookmarkTitle: "",
+    bookmarkUrl: "",
+    bookmarkDescription: ""
+  };
+
+  miniToggle = () => {
+    this.props.toggle();
+  };
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -13,19 +25,49 @@ class AddBookmark extends Component {
           toggle={this.props.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.props.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.props.toggle}>
+            Add your bookmark!
+          </ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            <Form>
+              <FormGroup>
+                <Label for="bookmarkTitle">Title</Label>
+                <Input
+                  type="text"
+                  name="bookmarkTitle"
+                  id="bookmarkTitle"
+                  placeholder="my favorite bookmark"
+                  onChange={this.onChange}
+                  value={this.state.bookmarkTitle}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="bookmarkDescription">Describe me!</Label>
+                <Input
+                  type="text"
+                  name="bookmarkDescription"
+                  id="exampleAddress2"
+                  placeholder="we need that too"
+                  onChange={this.onChange}
+                  value={this.state.bookmarkDescription}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="bookmarkUrl">URL</Label>
+                <Input
+                  type="text"
+                  name="bookmarkUrl"
+                  id="exampleAddress"
+                  placeholder="paste URL here"
+                  onChange={this.onChange}
+                  value={this.state.bookmarkUrl}
+                />
+              </FormGroup>
+            </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={()=>this.props.toggle()}>
-              Do Something
+            <Button color="primary" onClick={() => this.props.toggle()}>
+              Add bookmark
             </Button>{" "}
             <Button color="secondary" onClick={this.miniToggle}>
               Cancel
