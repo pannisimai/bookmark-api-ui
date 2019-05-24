@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Consumer } from "./Context";
+// import { Consumer } from "./Context";
 import "../styles/BookmarkItem.scss";
 
 export default class BookmarkItem extends Component {

@@ -13,8 +13,13 @@ class AddBookmark extends Component {
   };
   onChange = e => {
     this.setState({
+      // will take the target element property name and use it as the object key
       [e.target.name]: e.target.value
     });
+  };
+
+  logState = () => {
+    console.log(this.state);
   };
 
   render() {
@@ -66,7 +71,7 @@ class AddBookmark extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={() => this.props.toggle()}>
+            <Button color="primary" onClick={this.logState}>
               Add bookmark
             </Button>{" "}
             <Button color="secondary" onClick={this.miniToggle}>
