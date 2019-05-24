@@ -13,12 +13,8 @@ export default class AppContext extends Component {
     }
   }
 
-  handleChange = (type, e) => {
-    if (type === 'name') {
-      this.setState({ user: e.target.value })
-    } else if (type === 'password') {
-      this.setState({ password: e.target.value })
-    }
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
 

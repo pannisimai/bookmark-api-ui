@@ -10,11 +10,11 @@ export default function Auth() {
         return (<form>
           <label>
             Username:
-              <input type="text" name="name" value={user} required onChange={(e) => handleChange('name', e)} />
+              <input type="text" name="user" value={user} required onChange={handleChange} />
           </label>
           <label>
             Password:
-    <input type="password" name="password" value={password} required onChange={(e) => handleChange('password', e)} />
+    <input type="password" name="password" value={password} required onChange={handleChange} />
           </label>
           <input type="submit" value="Login" onClick={handleLogin} />
           <input type="submit" value="Register" onClick={handleRegister} />
