@@ -37,7 +37,7 @@ export default class BookmarkDisplay extends Component {
                     >
                       Delete
                     </button>
-                    <button type="button" className="btn btn-info">
+                    <button type="button" className="btn btn-dark">
                       Edit
                     </button>
                   </div>
