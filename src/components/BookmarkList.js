@@ -15,6 +15,33 @@ export default class BookmarkList extends Component {
     });
   };
 
+  createNewBookmark = bookmarkDetails => {
+    const {
+      bookmarkTitle: title,
+      bookmarkDescription: shortDescription,
+      bookmarkUrl: url
+    } = bookmarkDetails;
+    const token = localStorage.getItem("userToken");
+    const slicedToken = token.slice(1, token.length - 1);
+    // API returns a token with double double quotes - that's why the slice - might change when we work out of local storage
+    console.log(token.slice(1, token.length - 1));
+    fetch("/api/bookmarks", {
+      method: "POST",
+      withCredentials: true,
+      credentials: "include",
+      body: JSON.stringify({ title, shortDescription, url }),
+      headers: {
+        "Content-Type": "application/json",
+
+        token: slicedToken
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("saved bookmark", data);
+      });
+  };
+
   render() {
     return (
       <Consumer>
@@ -40,6 +67,7 @@ export default class BookmarkList extends Component {
               <AddBookmark
                 addBookmarkModal={this.state.addBookmarkModal}
                 toggle={this.toggle}
+                createNewBookmark={this.createNewBookmark}
               />
             </div>
           );

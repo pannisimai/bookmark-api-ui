@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className="col-12 header">
       <nav className="navbar navbar-light justify-content-between bookmark-navbar">
-        <a className="navbar-brand">Bookmark API</a>
+        <div className="navbar-brand">Bookmark API</div>
         <form className="form-inline">
           <input
             className="form-control mr-sm-2"

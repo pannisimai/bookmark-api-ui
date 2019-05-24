@@ -18,8 +18,11 @@ class AddBookmark extends Component {
     });
   };
 
-  logState = () => {
+  submitBookmarkDetails = e => {
+    e.preventDefault();
     console.log(this.state);
+    this.props.createNewBookmark(this.state);
+    this.miniToggle();
   };
 
   render() {
@@ -71,7 +74,7 @@ class AddBookmark extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.logState}>
+            <Button color="primary" onClick={this.submitBookmarkDetails}>
               Add bookmark
             </Button>{" "}
             <Button color="secondary" onClick={this.miniToggle}>
