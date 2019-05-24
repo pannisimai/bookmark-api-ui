@@ -1,0 +1,14 @@
+.bookmark-single-item {
+  padding-bottom: 1em;
+  transition: 0.5s;
+}
+
+.bookmark-single-item:hover {
+  cursor: pointer;
+  text-decoration: underline #d9534f;
+  transition: 0.5s;
+}
+
+.yourbookmarks-h5 {
+  padding-bottom: 1em;
+}

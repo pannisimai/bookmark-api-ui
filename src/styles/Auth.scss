@@ -1,0 +1,19 @@
+@import "./Variables.scss";
+
+.auth-container {
+  background-color: rgb(119, 119, 119);
+  border-radius: 5px;
+  // width: 400px;
+  margin-top: 10em;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  padding: 4em;
+  align-items: center;
+}
+
+.btn {
+  margin: 0.1em;
+}

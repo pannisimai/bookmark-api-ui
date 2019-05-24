@@ -1,0 +1,21 @@
+@import "./Variables.scss";
+
+.bookmark-list {
+  padding-top: 1.5em;
+}
+
+ul {
+  list-style: none;
+}
+
+.add-bookmark-li {
+  padding-top: 1.5em;
+  color: $dangerpink;
+  transition: 0.5s;
+}
+
+.add-bookmark-li:hover {
+  cursor: pointer;
+  color: black;
+  transition: 0.5s;
+}
