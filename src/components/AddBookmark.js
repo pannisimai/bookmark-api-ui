@@ -44,7 +44,7 @@ class AddBookmark extends Component {
                   type="text"
                   name="bookmarkTitle"
                   id="bookmarkTitle"
-                  placeholder="my favorite bookmark"
+                  placeholder="Bookmark title"
                   onChange={this.onChange}
                   value={this.state.bookmarkTitle}
                 />
@@ -55,7 +55,7 @@ class AddBookmark extends Component {
                   type="text"
                   name="bookmarkDescription"
                   id="exampleAddress2"
-                  placeholder="we need that too"
+                  placeholder="Write a bookmark description"
                   onChange={this.onChange}
                   value={this.state.bookmarkDescription}
                 />
@@ -66,7 +66,7 @@ class AddBookmark extends Component {
                   type="text"
                   name="bookmarkUrl"
                   id="exampleAddress"
-                  placeholder="paste URL here"
+                  placeholder="Paste your URL here"
                   onChange={this.onChange}
                   value={this.state.bookmarkUrl}
                 />
@@ -74,7 +74,7 @@ class AddBookmark extends Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.submitBookmarkDetails}>
+            <Button color="danger" onClick={this.submitBookmarkDetails}>
               Add bookmark
             </Button>{" "}
             <Button color="secondary" onClick={this.miniToggle}>

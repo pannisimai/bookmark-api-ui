@@ -13,25 +13,37 @@ export default class BookmarkDisplay extends Component {
                 <div className='bookmark-display-container'>
                   <div className='bookmark-display-text'>
                     {selectedBookmark.title && (
-                      <p className='bookmark-detail'>
-                        <p className='red-details'>Title</p>{' '}
+
+                      <p className="bookmark-detail">
+                        <p className="red-details">Title</p>{" "}
+
+                    
+
                         {selectedBookmark.title}
                       </p>
                     )}
                     {selectedBookmark.shortDescription && (
-                      <p className='bookmark-detail'>
-                        <p className='red-details'>Description</p>{' '}
+
+                      <p className="bookmark-detail">
+                        <p className="red-details">Description</p>{" "}
+
+                    
+
                         {selectedBookmark.shortDescription}
                       </p>
                     )}
                     {selectedBookmark.url && (
                       <a
                         href={selectedBookmark.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='bookmark-detail'
+
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bookmark-detail"
                       >
-                        <p className='red-details'>URL</p>{' '}
+                        <p className="red-details">URL</p>{" "}
+
+                      
+
                         {selectedBookmark.url}
                       </a>
                     )}
@@ -44,7 +56,10 @@ export default class BookmarkDisplay extends Component {
                     >
                       Delete
                     </button>
-                    <button type='button' className='btn btn-dark'>
+
+                    <button type="button" className="btn btn-dark">
+
+                   
                       Edit
                     </button>
                   </div>
