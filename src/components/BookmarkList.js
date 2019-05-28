@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import BookmarkItem from "./BookmarkItem";
-import { Consumer } from "./Context";
-import "../styles/BookmarkList.scss";
-import AddBookmark from "./AddBookmark";
+import React, { Component } from 'react';
+import BookmarkItem from './BookmarkItem';
+import { Consumer } from './Context';
+import '../styles/BookmarkList.scss';
+import AddBookmark from './AddBookmark';
 
 export default class BookmarkList extends Component {
   state = {
-    addBookmarkModal: false
+    addBookmarkModal: false,
   };
   toggle = () => {
-    console.log("toggle function workssss");
+    console.log('toggle function workssss');
     this.setState({
-      addBookmarkModal: !this.state.addBookmarkModal
+      addBookmarkModal: !this.state.addBookmarkModal,
     });
   };
 
@@ -19,26 +19,26 @@ export default class BookmarkList extends Component {
     const {
       bookmarkTitle: title,
       bookmarkDescription: shortDescription,
-      bookmarkUrl: url
+      bookmarkUrl: url,
     } = bookmarkDetails;
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem('userToken');
     const slicedToken = token.slice(1, token.length - 1);
     // API returns a token with double double quotes - that's why the slice - might change when we work out of local storage
     console.log(token.slice(1, token.length - 1));
-    fetch("/api/bookmarks", {
-      method: "POST",
+    fetch('/api/bookmarks', {
+      method: 'POST',
       withCredentials: true,
-      credentials: "include",
+      credentials: 'include',
       body: JSON.stringify({ title, shortDescription, url }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
 
-        token: slicedToken
-      }
+        token: slicedToken,
+      },
     })
       .then(res => res.json())
       .then(data => {
-        console.log("saved bookmark", data);
+        console.log('saved bookmark', data);
       });
   };
 
@@ -47,9 +47,8 @@ export default class BookmarkList extends Component {
       <Consumer>
         {({ showdetailsFunc, bookmarks }) => {
           return (
-            <div className="col-4 bookmark-list container">
+            <div className='col-4 bookmarklist'>
               <ul>
-                <h5 className="yourbookmarks-h5">Your bookmarks</h5>
                 {bookmarks.map(bookmark => {
                   console.log(bookmark);
                   return (
@@ -60,8 +59,8 @@ export default class BookmarkList extends Component {
                     />
                   );
                 })}
-                <li className="add-bookmark-li" onClick={this.toggle}>
-                  + Add Bookmark{" "}
+                <li className='add-bookmark-li' onClick={this.toggle}>
+                  + Add Bookmark{' '}
                 </li>
               </ul>
               <AddBookmark

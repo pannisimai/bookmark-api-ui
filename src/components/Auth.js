@@ -1,6 +1,6 @@
-import React from "react";
-import { Consumer } from "./Context";
-import "../styles/Auth.scss";
+import React from 'react';
+import { Consumer } from './Context';
+import '../styles/Auth.scss';
 
 export default function Auth() {
   return (
@@ -11,44 +11,44 @@ export default function Auth() {
           handleLogin,
           handleRegister,
           user,
-          password
+          password,
         } = value;
         return (
-          <div className="container auth-container">
-            <form className="auth-form">
+          <div className='container auth-container'>
+            <form className='auth-form'>
               <label>
                 <input
-                  type="text"
-                  name="name"
+                  type='text'
+                  name='user'
                   value={user}
-                  placeholder="Username"
+                  placeholder='Username'
                   required
-                  className="form-control"
-                  onChange={e => handleChange("name", e)}
+                  className='form-control'
+                  onChange={handleChange}
                 />
               </label>
               <label>
                 <input
-                  type="password"
-                  name="password"
+                  type='password'
+                  name='password'
                   value={password}
-                  placeholder="Password"
+                  placeholder='Password'
                   required
-                  className="form-control"
-                  onChange={e => handleChange("password", e)}
+                  className='form-control'
+                  onChange={handleChange}
                 />
               </label>
               <div>
                 <input
-                  type="submit"
-                  value="Login"
-                  className="btn btn-dark login-btn"
+                  type='submit'
+                  value='Login'
+                  className='btn btn-dark login-btn'
                   onClick={handleLogin}
                 />
                 <input
-                  type="submit"
-                  value="Register"
-                  className="btn btn-dark submit-btn"
+                  type='submit'
+                  value='Register'
+                  className='btn btn-dark submit-btn'
                   onClick={handleRegister}
                 />
               </div>
